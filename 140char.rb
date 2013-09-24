@@ -1,5 +1,5 @@
 # potential features:
-# 1. insert (1 of 3), etc
+# 1. insert (1 of 3) markers, etc
 # insert ellipis at end of each non-final tweet
 
 
@@ -10,10 +10,13 @@ def split_encapsulation(s)
   if s.length <= 140
     return s
   end
-  
+ 
   splitter = lambda do |remaining_string, a|
+    # start at remaining_string[139], ie length=140
     # find the first word, and take from there to zero
-    i = 139 # start at remaining_string[139], ie length=140
+    i = 139 
+    # loop exits when remaining_string.length == 0,
+    # and when loop exits array is returned 
     while i > 0
       unless remaining_string[i] =~ (/\W/)
         i -= 1
