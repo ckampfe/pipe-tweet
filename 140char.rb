@@ -1,17 +1,17 @@
 # potential features:
 # 1. insert (1 of 3) markers, etc
-# insert ellipis at end of each non-final tweet
+# 2. insert ellipis at end of each non-final tweet
+# 3. ability to force preview of tweet, for example,
+# with a -p switch, with a 'y/n' to tweet
 
 
 # inputs <= 140 chars are returned as a string;
 # inputs > 140 chars are returned as an array of strings
 
-def split_encapsulation(s)
-  if s.length <= 140
-    return s
-  end
+def splitter(s)
+  s if s.length <= 140
  
-  splitter = lambda do |remaining_string, a|
+  split_rec = lambda do |remaining_string, a|
     # start at remaining_string[139], ie length=140
     # find the first word, and take from there to zero
     i = 139 
@@ -22,7 +22,7 @@ def split_encapsulation(s)
         i -= 1
       else
         a << remaining_string.slice!(/^.{#{i+1}}/) # <-- seems dirty
-        splitter.call(remaining_string, a)
+        split_rec.call(remaining_string, a)
       end
     end 
 
@@ -31,9 +31,9 @@ def split_encapsulation(s)
   
   tweets = []
 
-  splitter.call(s, tweets)
+  split_rec.call(s, tweets)
 end
 
 # apparently ARGV strings are immutable
 input = ARGV.shift.dup
-p split_encapsulation(input)
+p splitter(input)

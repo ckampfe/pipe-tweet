@@ -1,0 +1,19 @@
+potential features:
+1. insert (1 of 3) markers, etc
+2. insert ellipis at end of each non-final tweet
+3. ability to force preview of tweet, for example,
+   with a -p switch, with a 'y/n' to tweet
+
+todo:
+1. auth (pin-based OAuth, at this point)
+2. post
+3. response (successful, failed, etc.)
+
+do-not-want:
+1. ability to read/stream tweets
+2. ability to access profiles
+3. ability to query against followers or followed lists
+4. anything to do with lists
+
+implemented:
+1. split into <=140-char strings
