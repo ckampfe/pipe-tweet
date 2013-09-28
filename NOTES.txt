@@ -1,3 +1,6 @@
+overview:
+-posting to twitter, of both single-tweets, and multi-part, on a prearranged interval, ie one tweet every 2 minutes, etc.
+
 potential features:
 1. insert (1 of 3) markers, etc
 2. insert ellipis at end of each non-final tweet
@@ -5,9 +8,10 @@ potential features:
    with a -p switch, with a 'y/n' to tweet
 
 todo:
-1. auth (pin-based OAuth, at this point)
-2. post
-3. response (successful, failed, etc.)
+1. authentication (pin-based OAuth, at this point, see https://dev.twitter.com/docs/auth/pin-based-authorization), require 'oauth' gem
+2. post (require 'net/HTTP')
+3. response (successful, failed, etc.) ( Net::HTTP)
+4. command/control: OptionParser or GLI? (require 'optparse'), see command-line book.
 
 do-not-want:
 1. ability to read/stream tweets
@@ -17,3 +21,8 @@ do-not-want:
 
 implemented:
 1. split into <=140-char strings
+
+requirements:
+-Optionparser (in stdlib)
+-Net::HTTP (in stdlib)
+-OAuth (gem)
