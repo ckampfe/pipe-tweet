@@ -9,14 +9,14 @@
 # inputs > 140 chars are returned as an array of strings
 
 def splitter(s)
-  s if s.length <= 140
- 
+  return s if s.length <= 140
+
   split_rec = lambda do |remaining_string, a|
     # start at remaining_string[139], ie length=140
     # find the first word, and take from there to zero
-    i = 139 
+    i = 139
     # loop exits when remaining_string.length == 0,
-    # and when loop exits array is returned 
+    # and when loop exits array is returned
     while i > 0
       unless remaining_string[i] =~ (/\W/)
         i -= 1
@@ -24,11 +24,11 @@ def splitter(s)
         a << remaining_string.slice!(/^.{#{i+1}}/) # <-- seems dirty
         split_rec.call(remaining_string, a)
       end
-    end 
+    end
 
     return a
-  end 
-  
+  end
+
   tweets = []
 
   split_rec.call(s, tweets)
