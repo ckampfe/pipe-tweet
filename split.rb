@@ -18,7 +18,7 @@ def splitter(given_string)
         i -= 1
       else
         remaining_string.strip!
-        tweet_array << remaining_string.slice!(/(.{,140}\b)/)
+        tweet_array << remaining_string.slice!(/(.{,140}\b)/).strip
         split_rec.call(remaining_string, tweet_array)
       end
     end
