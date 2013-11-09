@@ -8,32 +8,25 @@
 # inputs <= 140 chars are returned as a string;
 # inputs > 140 chars are returned as an array of strings
 
-def splitter(s)
-  return s if s.length <= 140
+def splitter(given_string)
+  return given_string if given_string.length <= 140
 
-  split_rec = lambda do |remaining_string, a|
-    # start at remaining_string[139], ie length=140
-    # find the first word, and take from there to zero
+  split_rec = lambda do |remaining_string, tweet_array|
     i = 139
-    # loop exits when remaining_string.length == 0,
-    # and when loop exits array is returned
-    while i > 0
+    while i >= 0
       unless remaining_string[i] =~ (/\W/)
         i -= 1
       else
-        a << remaining_string.slice!(/^.{#{i+1}}/) # <-- seems dirty
-        split_rec.call(remaining_string, a)
+        remaining_string.strip!
+        tweet_array << remaining_string.slice!(/(.{,140}\b)/)
+        split_rec.call(remaining_string, tweet_array)
       end
     end
 
-    return a
+    return tweet_array
   end
 
   tweets = []
 
-  split_rec.call(s, tweets)
+  split_rec.call(given_string, tweets)
 end
-
-# apparently ARGV strings are immutable
-input = ARGV.shift.dup
-p splitter(input)
