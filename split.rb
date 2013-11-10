@@ -9,11 +9,12 @@
 # inputs > 140 chars are returned as an array of strings
 
 def splitter(given_string)
-  return given_string if given_string.length <= 140
+  given_string.gsub!("\r\n", "")
+  return [given_string] if given_string.length <= 140
 
   split_rec = lambda do |remaining_string, tweet_array|
     i = 139
-    while i >= 0
+    while i > 0
       unless remaining_string[i] =~ (/\W/)
         i -= 1
       else
