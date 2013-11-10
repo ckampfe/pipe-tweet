@@ -12,5 +12,4 @@ Run a command, and tweet its output.
 
 ```
 cat your/file.txt | ruby tweet.rb
-
 ```
