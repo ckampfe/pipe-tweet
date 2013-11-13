@@ -8,7 +8,7 @@ require './split'
 
 APP_ROOT = Pathname.new(File.expand_path('..', __FILE__))
 
-env_config = YAML.load_file(APP_ROOT.join('twitter.yaml'))
+env_config = YAML.load_file(APP_ROOT.join('twitter.yml'))
 
 env_config.each do |key, value|
   ENV[key] = value
