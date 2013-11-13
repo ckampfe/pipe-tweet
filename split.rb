@@ -1,13 +1,3 @@
-# potential features:
-# 1. insert (1 of 3) markers, etc
-# 2. insert ellipis at end of each non-final tweet
-# 3. ability to force preview of tweet, for example,
-# with a -p switch, with a 'y/n' to tweet
-
-
-# inputs <= 140 chars are returned as a string;
-# inputs > 140 chars are returned as an array of strings
-
 def splitter(given_string)
   given_string.gsub!("\r\n", "")
   return [given_string] if given_string.length <= 140
