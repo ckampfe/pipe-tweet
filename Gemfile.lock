@@ -1,6 +1,13 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    columnize (0.3.6)
+    debugger (1.6.2)
+      columnize (>= 0.3.1)
+      debugger-linecache (~> 1.2.0)
+      debugger-ruby_core_source (~> 1.2.3)
+    debugger-linecache (1.2.0)
+    debugger-ruby_core_source (1.2.3)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
     multi_json (1.8.2)
@@ -15,4 +22,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  debugger
   twitter
