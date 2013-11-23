@@ -3,7 +3,6 @@ require 'twitter'
 require 'optparse'
 require 'yaml'
 
-
 require './split'
 
 APP_ROOT = Pathname.new(File.expand_path('..', __FILE__))
