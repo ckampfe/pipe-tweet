@@ -2,6 +2,7 @@ require 'pathname'
 require 'twitter'
 require 'optparse'
 require 'yaml'
+require 'debugger'
 
 require './split'
 
