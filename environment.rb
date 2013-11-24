@@ -4,7 +4,8 @@ require 'optparse'
 require 'yaml'
 require 'debugger'
 
-require './split'
+# require './split'
+require './rsplit'
 
 APP_ROOT = Pathname.new(File.expand_path('..', __FILE__))
 
