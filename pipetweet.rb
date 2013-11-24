@@ -7,16 +7,16 @@ class Collection
     @collection = tweet_collection
   end
 
-  def send(interval)
+  def send(interval=15)
     @collection.each do |tweet|
       puts "tweet # #{@collection.index(tweet)}"
       CLIENT.update(tweet.body)
-      sleep(interval)
+      sleep_for(interval)
     end
   end
 
-  def sleep(sec=15)
-    sleep(sec)
+  def sleep_for(sec)
+    sleep sec
   end
 end
 
@@ -41,11 +41,12 @@ while line = gets
   base_string += line
 end
 
-debugger
-s = splitter(base_string) # split string
+s = split(base_string) # split string
 tweets = s.map { |t| Tweet.new(t) } # tweet objects
 collection = Collection.new(tweets) # tweet collection
-debugger
-p options
-p options[:interval]
-collection.send(options[:interval])
+
+if options[:interval]
+  collection.send(options[:interval])
+else
+  collection.send
+end
