@@ -1,7 +1,7 @@
 pipe-tweet
 ==========
 
-Run a command, and tweet its output.
+Run a command and tweet its output.
 
 ## Instructions
 
