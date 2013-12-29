@@ -4,7 +4,7 @@ def get_opts
   options = {}
   option_parser = OptionParser.new do |opts|
     executable_name = File.basename("pipetweet.rb")
-    opts.banner = "Run a command, tweet its output
+    opts.banner = "Run a command; tweet its output
 
     Usage: #{executable_name} [options]
     "
