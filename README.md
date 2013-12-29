@@ -24,7 +24,7 @@ cat your/file.txt | ruby tweet.rb -i 7
 ```
 
 ```
-Run a command, tweet its output
+Run a command; tweet its output
 
     Usage: pipetweet.rb [options]
     
