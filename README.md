@@ -23,7 +23,13 @@ OAUTH_TOKEN_SECRET:      $YOUR_OAUTH_TOKEN_SECRET
 cat your/file.txt | ruby tweet.rb -i 7
 ```
 
-where ```-i INTERVAL``` is an optional argument to manually set the time (sec) between tweets. The default is 15 seconds.
+```
+Run a command, tweet its output
+
+    Usage: pipetweet.rb [options]
+    
+    -i, --interval INTERVAL          Interval between tweets (default=15)
+```
 
 - Step 3. ???
 - Step 4. Profit!
