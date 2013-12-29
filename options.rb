@@ -13,8 +13,7 @@ def get_opts
             "Interval between tweets (default=15)") do |i|
 
       unless i.to_i == 0
-        i = i.to_i
-        options[:interval] = i
+        options[:interval] = i.to_i
       else
         raise TypeError, "Interval must be a number"
       end
