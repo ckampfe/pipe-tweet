@@ -1,4 +1,4 @@
-pipe-tweet
+pipetweet
 ==========
 
 Run a command; tweet its output.
