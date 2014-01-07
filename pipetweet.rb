@@ -1,7 +1,7 @@
 require './env'
 require './options'
 
-class Collection
+class TweetCollection
 
   def initialize(tweet_collection)
     @collection = tweet_collection
@@ -9,44 +9,27 @@ class Collection
 
   def send(interval=15)
     @collection.each do |tweet|
-      puts "tweet # #{@collection.index(tweet)}"
-      CLIENT.update(tweet.body)
-      sleep_for(interval)
+      puts "tweet # #{@collection.index(tweet) + 1}"
+      CLIENT.update(tweet)
+      sleep interval
     end
-  end
-
-  def sleep_for(sec)
-    sleep sec
-  end
-end
-
-
-class Tweet
-
-  attr_reader :body
-
-  def initialize(tweet)
-    @body = tweet
   end
 end
 
 ### DRIVER ###
 
-options = get_opts # options from optionparser
+def tweets
+  base_string = ""
+  while line = gets
+    base_string += line
+  end
 
-base_string = ""
-
-# so as to get multiple lines of text
-while line = gets
-  base_string += line
+  tweet_list = split(base_string)
+  TweetCollection.new(tweet_list)
 end
 
-s = split(base_string) # split string
-tweets = s.map { |t| Tweet.new(t) } # tweet objects
-collection = Collection.new(tweets) # tweet collection
-
 if options[:interval]
-  collection.send(options[:interval])
+  tweets.send(options[:interval])
 else
-  collection.send
+  tweets.send
 end
