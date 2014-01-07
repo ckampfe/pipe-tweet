@@ -11,12 +11,8 @@ class TweetCollection
     @collection.each do |tweet|
       puts "tweet # #{@collection.index(tweet) + 1}"
       CLIENT.update(tweet)
-      sleep_for(interval)
+      sleep interval
     end
-  end
-
-  def sleep_for(sec)
-    sleep sec
   end
 end
 
