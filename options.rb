@@ -1,4 +1,4 @@
-require './environment'
+require './env'
 
 def get_opts
   options = {}
