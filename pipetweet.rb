@@ -32,7 +32,6 @@ def tweets
   TweetCollection.new(tweet_list) # tweet collection, implicitly returned as message
 end
 
-
 if options[:interval]
   tweets.send(options[:interval])
 else
