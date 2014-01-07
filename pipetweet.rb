@@ -24,8 +24,8 @@ def tweets
     base_string += line
   end
 
-  tweet_list = split(base_string) # split string
-  TweetCollection.new(tweet_list) # tweet collection, implicitly returned as message
+  tweet_list = split(base_string)
+  TweetCollection.new(tweet_list)
 end
 
 if options[:interval]
