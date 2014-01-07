@@ -9,8 +9,8 @@ class Collection
 
   def send(interval=15)
     @collection.each do |tweet|
-      puts "tweet # #{@collection.index(tweet)}"
-      CLIENT.update(tweet.body)
+      puts "tweet # #{@collection.index(tweet) + 1}"
+      CLIENT.update(tweet)
       sleep_for(interval)
     end
   end
@@ -20,20 +20,9 @@ class Collection
   end
 end
 
-
-class Tweet
-
-  attr_reader :body
-
-  def initialize(tweet)
-    @body = tweet
-  end
-end
-
 ### DRIVER ###
 
 options = get_opts # options from optionparser
-
 base_string = ""
 
 # so as to get multiple lines of text
@@ -41,8 +30,7 @@ while line = gets
   base_string += line
 end
 
-s = split(base_string) # split string
-tweets = s.map { |t| Tweet.new(t) } # tweet objects
+tweets = split(base_string) # split string
 collection = Collection.new(tweets) # tweet collection
 
 if options[:interval]
