@@ -23,3 +23,7 @@ def get_opts
   option_parser.parse!
   options
 end
+
+def options
+  @options ||= get_opts
+end

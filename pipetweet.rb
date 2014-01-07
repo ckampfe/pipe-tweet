@@ -1,7 +1,7 @@
 require './env'
 require './options'
 
-class Collection
+class TweetCollection
 
   def initialize(tweet_collection)
     @collection = tweet_collection
@@ -22,19 +22,19 @@ end
 
 ### DRIVER ###
 
-options = get_opts # options from optionparser
-base_string = ""
+def tweets
+  base_string = ""
+  while line = gets
+    base_string += line
+  end
 
-# so as to get multiple lines of text
-while line = gets
-  base_string += line
+  tweet_list = split(base_string) # split string
+  TweetCollection.new(tweet_list) # tweet collection, implicitly returned as message
 end
 
-tweets = split(base_string) # split string
-collection = Collection.new(tweets) # tweet collection
 
 if options[:interval]
-  collection.send(options[:interval])
+  tweets.send(options[:interval])
 else
-  collection.send
+  tweets.send
 end
